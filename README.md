@@ -56,7 +56,7 @@ The difference is that we do not need to keep, or better to say rewrite, "name" 
 Then, we ensure adding event listener into input via:
     `onChange={this.onUpdateSearch}`
     
-#app.js:
+## app.js:
 
 Nothing crucial to say about, at least we have imitated data being kept on state and all logical methods to work with data:
 

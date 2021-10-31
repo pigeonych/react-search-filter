@@ -1,70 +1,87 @@
-# Getting Started with Create React App
+Search & Filter constructor created via React Components
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Here we have 4 component folders: 
+- app
+- items
+- filterItem
+- searchItem
 
-## Available Scripts
+These folders all include script and stylesheet files:
+- %foldername%.js
+- _%foldername%.scss
 
-In the project directory, you can run:
+items.js:
 
-### `npm start`
+<Items /> class component takes props from App.js as an array of objects:
+		const {visibleData} = this.props;
+Via map() method we construct standard layout in view of cards (can be modified any way) and keep it all in renderedData array.
+    renderedData = visibleData.map(...);
+Finally we render {renderedData} element of the page.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+filerItem.js:
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+<FilterItem /> functional component uses state raising method in order to manipulate with filter statement of App parental component.
+    onClick={() => props.onUpdateFilter(name)}
+Initiallly all buttons and their characteristics included into "buttonsData" array state, so we can dynamically render them afterwards.
+    const buttonsView = buttonsData.map(...)
+Each button then takes active class: "All" statement as default and "clazz" once it is clicked
+    const active = props.filter === name;
+		const clazz = active ? "btn-light" : null;
+Now we render {buttonsView} element of the page.
 
-### `npm test`
+searchItem.js: 
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+<SearchItem /> takes one and only property onUpdateSearch method came from parental component App.js
+  	const production = e.target.value;
+		this.setState({production});
+		this.props.onUpdateSearch(production);
+Also, you can see the we have "production" constant that takes value from the input and sets it into inner state, which afterwards goes into onUpdateSearch(production) as a parameter. Here we also use state raising method.
 
-### `npm run build`
+Then what is the difference between <FilterItem /> raising statement method and the last one?
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+The difference is that we do not need to keep, or better to say rewrite, "name" statement in first component as it already exist in there. We just need to send it to the parental class via raising statement method.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+Then, we ensure adding event listener into input via:
+    onChange={this.onUpdateSearch}
+    
+app.js:
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Nothing crucial to say about, at least we have imitated data being kept on state and all logical methods to work with data:
 
-### `npm run eject`
+Function of searching coincidences:
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+searchEmp = (items, term) => {
+		if (term.length === 0) {
+			return items;
+		}
+		return items.filter(item => {
+			return item.title.indexOf(term) > -1;
+		});
+}
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Note, that here "item.title" is checked, so if you wish to search other classifications you need to change this statement.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+Function of filtering by division:
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+filterPost = (items, filter) => {
+		switch(filter) {
+			case "Brazil": 
+				return items.filter(item => item.production === "Brazil");
+			case "Kenya":
+				return items.filter(item => item.production === "Kenya");
+			case "Columbia":
+				return items.filter(item => item.production === "Columbia");
+			default: 
+				return items;
+		}
+}
 
-## Learn More
+Note, that here we have divisions by the production placement: "Brazil", "Kenya"...
+So change the case sides if you making different division types.
+The logic of the data filtering method should also be changed depending on the requirements.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+In order to run the project write in terminal:
+npm i
+npm start
 
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+All the other commands can be found in package.json file.

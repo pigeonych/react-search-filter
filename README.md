@@ -1,6 +1,6 @@
-###Search & Filter constructor created via React Components
+# Search & Filter constructor created via React Components
 
-##Here we have 4 component folders: 
+## Here we have 4 component folders: 
 - app
 - items
 - filterItem
@@ -10,20 +10,28 @@ These folders all include script and stylesheet files:
 - %foldername%.js
 - _%foldername%.scss
 
-#items.js:
+## items.js:
 
 <Items /> class component takes props from App.js as an array of objects:
+
    `const {visibleData} = this.props;`
+   
 Via map() method we construct standard layout in view of cards (can be modified any way) and keep it all in renderedData array.
+
    `renderedData = visibleData.map(...);`
+   
 Finally we render {renderedData} element of the page.
 
-#filerItem.js:
+## filerItem.js:
 
 <FilterItem /> functional component uses state raising method in order to manipulate with filter statement of App parental component.
+
     `onClick={() => props.onUpdateFilter(name)}`
+    
 Initiallly all buttons and their characteristics included into "buttonsData" array state, so we can dynamically render them afterwards.
+
     `const buttonsView = buttonsData.map(...);`
+    
 Each button then takes active class: "All" statement as default and "clazz" once it is clicked
 ```
     const active = props.filter === name;
@@ -31,7 +39,7 @@ Each button then takes active class: "All" statement as default and "clazz" once
 ```
 Now we render {buttonsView} element of the page.
 
-#searchItem.js: 
+## searchItem.js: 
 
 <SearchItem /> takes one and only property onUpdateSearch method came from parental component App.js
 ```

@@ -1,0 +1,117 @@
+@import url("https://fonts.googleapis.com/css2?family=Merienda:wght@400;700&display=swap");
+.FilterItem {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.FilterItem button {
+  margin-left: 20px;
+  display: block;
+  width: 75px;
+  height: 30px;
+  -webkit-box-shadow: 5px 5px 2px rgba(0, 0, 0, 0.5);
+          box-shadow: 5px 5px 2px rgba(0, 0, 0, 0.5);
+}
+
+.btn-light {
+  background-color: rgba(0, 0, 0, 0.3);
+  color: #fff;
+}
+
+.SearchItem {
+  display: block;
+  width: 284px;
+  height: 30px;
+  -webkit-box-shadow: 5px 5px 2px rgba(0, 0, 0, 0.5);
+          box-shadow: 5px 5px 2px rgba(0, 0, 0, 0.5);
+}
+
+.item {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 20px;
+  border: 2px solid black;
+  margin-bottom: 20px;
+  -ms-flex-preferred-size: 23%;
+      flex-basis: 23%;
+  text-align: center;
+}
+
+.item h2 {
+  font-size: 24px;
+  font-weight: 700;
+}
+
+.item h3 {
+  font-size: 15px;
+  font-weight: 400;
+}
+
+.Items {
+  margin: 60px auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+}
+
+.App {
+  font-family: Merienda, sans-serif;
+  min-height: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.barWrapper {
+  min-width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.itemWrapper {
+  min-width: 1200px;
+  margin: 0 auto;
+}
+/*# sourceMappingURL=App.css.map */

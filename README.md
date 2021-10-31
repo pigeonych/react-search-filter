@@ -71,7 +71,7 @@ searchEmp = (items, term) => {
 	});
 }
 ```
-#Note, that here "item.title" is checked, so if you wish to search other classifications you need to change this statement.
+###### Note, that here "item.title" is checked, so if you wish to search other classifications you need to change this statement.
 
 Function of filtering by division:
 ```
@@ -89,9 +89,9 @@ filterPost = (items, filter) => {
 }
 ```
 
-#Note, that here we have divisions by the production placement: "Brazil", "Kenya"...
-#So change the case sides if you making different division types.
-#The logic of the data filtering method should also be changed depending on the requirements.
+###### Note, that here we have divisions by the production placement: "Brazil", "Kenya"...
+###### So change the case sides if you making different division types.
+###### The logic of the data filtering method should also be changed depending on the requirements.
 
 In order to run the project write in terminal:
 
